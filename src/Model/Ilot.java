@@ -11,7 +11,6 @@ public class Ilot extends ElementEspace{
 	private ArrayList<String> fileAttenteEntree;
 	private ArrayList<String> fileAttenteSortie;
 	private int nbMachines;
-	//Enumération des types?
 	private TypeMachine type;
 	
 	/**
