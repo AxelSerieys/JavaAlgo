@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Atelier contenant une chaine de production
  * @author nathan
- * Creer le: 07/12/2019
+ * Créé le: 07/12/2019
  */
 public class Atelier {
 	
