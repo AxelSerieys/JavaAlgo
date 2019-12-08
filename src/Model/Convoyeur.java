@@ -5,14 +5,15 @@ package Model;
  * @author aserieys
  *
  */
-public class Convoyeur {
+public class Convoyeur extends ElementEspace{
 	
 	private int vitesseDeplacement;
 	private int capacite;
 	private String type;
 	private Produit produit = null;
 	
-	public Convoyeur(String type, int capacite, int vitesseDeplacement) {
+	public Convoyeur(int x, int y, String type, int capacite, int vitesseDeplacement) {
+		super(x,y);
 		this.type = type;
 		this.capacite = capacite;
 		this.vitesseDeplacement = vitesseDeplacement;

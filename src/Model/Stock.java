@@ -8,12 +8,13 @@ import java.util.List;
  * @author aserieys
  *
  */
-public class Stock {
+public class Stock extends ElementEspace{
 
 	private String type;
 	private List<Produit> produits;
 	
-	public Stock(String type) {
+	public Stock(String type, int x, int y) {
+		super(x,y);
 		this.type = type;
 		this.produits = new ArrayList<Produit>();
 	}
