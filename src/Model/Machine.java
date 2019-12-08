@@ -2,13 +2,13 @@ package Model;
 
 public class Machine {
 	//Enumération des types?
-	private String type;
+	private TypeMachine type;
 	
-	public void setType(String type) {
+	public void setType(TypeMachine type) {
 		this.type=type;
 	}
 	
-	public String getType() {
+	public TypeMachine getType() {
 		return type;
 	}
 }

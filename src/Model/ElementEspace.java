@@ -4,13 +4,8 @@ public class ElementEspace {
 	private int posX;
 	private int posY;
 	
-	//Fonction SetPosition(int x, int y)?
-	
-	public void SetPositionX(int x) {
+	public ElementEspace(int x, int y) {
 		this.posX=x;
-	}
-	
-	public void SetPositionY(int y) {
 		this.posY=y;
 	}
 	

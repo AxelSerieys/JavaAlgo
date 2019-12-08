@@ -1,18 +1,19 @@
 package Model;
 import java.util.*;
 
-public class Ilot {
+public class Ilot extends ElementEspace{
 	private ArrayList<String> fileAttenteEntree;
 	private ArrayList<String> fileAttenteSortie;
 	private int nbMachines;
 	//Enumération des types?
-	private String type;
+	private TypeMachine type;
 	
-	public void setType(String type) {
+	public Ilot(TypeMachine type, int x, int y) {
+		super(x,y);
 		this.type=type;
 	}
 	
-	public String getType() {
+	public TypeMachine getType() {
 		return type;
 	}
 }
