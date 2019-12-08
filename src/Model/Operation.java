@@ -18,8 +18,7 @@ public class Operation {
 	private String type;
 	
 	/** Liste des operations **/
-	public static List<Operation> listeOperation =  new ArrayList<>();;
-	
+	public static List<Operation> listeOperation =  new ArrayList<>();
 	
 	/**
 	 * Constructeur Operation
@@ -37,6 +36,18 @@ public class Operation {
 	 */
 	public static void ajoutOperation(Operation operation) {
 		listeOperation.add(operation);
+	}
+	
+	/**
+	 * Supprime une operation
+	 * @param operation: operation à supprimer
+	 */
+	public static void supprOperation(Operation operation) {
+		for (int i = 0; i < listeOperation.size(); i++) {
+			if (listeOperation.get(i).equals(operation)) {
+				listeOperation.remove(i);
+			}
+		}
 	}
 	
 	/**
