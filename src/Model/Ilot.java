@@ -18,9 +18,12 @@ public class Ilot extends ElementEspace{
 	 * @param type : le type de machines composant l'îlot
 	 * @param x : position en x de l'îlot
 	 * @param y : position en y de l'îlot
+	 * @param taille : taille des files d'attentes de l'îlot
 	 */
-	public Ilot(TypeMachine type, int x, int y) {
+	public Ilot(TypeMachine type, int x, int y, int taille) {
 		super(x,y);
+		fileAttenteEntree=new ArrayList<String>(taille);
+		fileAttenteSortie=new ArrayList<String>(taille);
 		this.type=type;
 	}
 	
