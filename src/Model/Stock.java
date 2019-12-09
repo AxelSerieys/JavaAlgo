@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * Un stock permet de stocker plusieurs produits
  * @author aserieys
+ * Créé le: 05/12/2019
  *
  */
 public class Stock extends ElementEspace{

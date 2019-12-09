@@ -3,6 +3,7 @@ package Model;
 /**
  * Un convoyeur transporte des produits aux différents Îlots
  * @author aserieys
+ * Créé le: 05/12/2019
  *
  */
 public class Convoyeur extends ElementEspace{

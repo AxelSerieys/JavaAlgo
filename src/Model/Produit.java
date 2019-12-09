@@ -3,6 +3,7 @@ package Model;
 /**
  * Un produit est le résultat de différentes transformations représentées par le numéroPhase.
  * @author aserieys
+ * Créé le: 05/12/2019
  *
  */
 public class Produit {
