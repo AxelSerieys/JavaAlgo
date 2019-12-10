@@ -10,30 +10,19 @@ public class Convoyeur extends ElementEspace{
 	
 	private int vitesseDeplacement;
 	private int capacite;
-	private String type;
 	private Produit produit = null;
 	
 	/**
 	 * Constructeur de Convoyeur :
 	 * @param x la position en x du convoyeur
 	 * @param y la position en y du convoyeur
-	 * @param type le type du convoyeur
 	 * @param capacite la capacité de stockage du convoyeur
 	 * @param vitesseDeplacement la vitesse de déplacement du convoyeur
 	 */
-	public Convoyeur(int x, int y, String type, int capacite, int vitesseDeplacement) {
+	public Convoyeur(int x, int y, int capacite, int vitesseDeplacement) {
 		super(x,y);
-		this.type = type;
 		this.capacite = capacite;
 		this.vitesseDeplacement = vitesseDeplacement;
-	}
-	
-	/**
-	 * Retourne le type du convoyeur
-	 * @return String - le type du convoyeur
-	 */
-	public String getType() {
-		return this.type;
 	}
 	
 	/**
@@ -67,16 +56,7 @@ public class Convoyeur extends ElementEspace{
 	public Produit getProduit() {
 		return this.produit;
 	}
-	
-	/**
-	 * Change le type du convoyeur
-	 * @param type  le nouveau type du convoyeur
-	 */
-	@Deprecated
-	public void setType(String type) {
-		this.type = type;
-	}
-	
+
 	/**
 	 * Change la capacité du convoyeur
 	 * @param capacite  la nouvelle capacité du convoyeur
