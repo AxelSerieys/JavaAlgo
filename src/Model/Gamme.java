@@ -11,12 +11,14 @@ public class Gamme {
 	
 	/** Attribut d'une Gamme: Liste Chainee **/
 	public static LinkedList<Operation> listeGamme;
+	private String nom;
 	
 	/**
 	 * Constructeur de la Gamme d'un produit
 	 */
-	public Gamme() {
+	public Gamme(String nom) {
 		listeGamme = new LinkedList<Operation>();
+		this.nom=nom;
 	}
 	
 	/**
@@ -56,5 +58,10 @@ public class Gamme {
 	/** Setter d'une Gamme **/
 	public void setGamme(LinkedList<Operation> listeGamme) {
 		this.listeGamme = listeGamme;
+	}
+	
+	/** Getter du nom d'une Gamme **/
+	public String getNom() {
+		return this.nom;
 	}
 }
