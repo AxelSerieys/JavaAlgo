@@ -31,7 +31,7 @@ public class Controller {
 	}
 	
 	public void simuler() {
-		
+		//while(nb produit dans le stock final<nb produits a fabriquer)
 	}
 	
 	public double calculTpsDeplacement(double distance, int vitesse) {
