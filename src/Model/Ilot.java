@@ -11,7 +11,7 @@ public class Ilot extends ElementEspace{
 	private ArrayList<String> fileAttenteEntree;
 	private ArrayList<String> fileAttenteSortie;
 	private int nbMachines;
-	private TypeMachine type;
+	private TypeMachines type;
 	
 	/**
 	 * Crée un îlot
@@ -20,7 +20,7 @@ public class Ilot extends ElementEspace{
 	 * @param y : position en y de l'îlot
 	 * @param taille : taille des files d'attentes de l'îlot
 	 */
-	public Ilot(TypeMachine type, int x, int y, int taille) {
+	public Ilot(TypeMachines type, int x, int y, int taille) {
 		super(x,y);
 		fileAttenteEntree=new ArrayList<String>(taille);
 		fileAttenteSortie=new ArrayList<String>(taille);
@@ -32,7 +32,7 @@ public class Ilot extends ElementEspace{
 	 * @param machine : machine à ajouter à l'îlot
 	 */
 	public void AjoutMachine(Machine machine) {
-		if(machine.getType()==this.type) {
+		if(machine.getType()==this.type.getType()) {
 			this.nbMachines++;
 		} else {
 			System.out.println("Type de la machine different de celui accépté par l'îlot");
@@ -43,7 +43,7 @@ public class Ilot extends ElementEspace{
 	 * Renvoie le type des machines composant l'îlot
 	 * @return type de machine
 	 */
-	public TypeMachine getType() {
-		return type;
+	public String getType() {
+		return type.getType();
 	}
 }

@@ -7,13 +7,13 @@ package Model;
  */
 
 public class Machine {
-	private TypeMachine type;
+	private TypeMachines type;
 	
 	/**
 	 * Crée une machine
 	 * @param type : le type de la machine
 	 */
-	public Machine(TypeMachine type) {
+	public Machine(TypeMachines type) {
 		this.type=type;
 	}
 	
@@ -21,7 +21,7 @@ public class Machine {
 	 * Renvoie le type de la machine
 	 * @return type de machine
 	 */
-	public TypeMachine getType() {
-		return type;
+	public String getType() {
+		return type.getType();
 	}
 }
