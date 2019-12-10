@@ -1,6 +1,8 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Atelier contenant une chaine de production
@@ -10,13 +12,112 @@ import java.util.List;
 public class Atelier {
 	
 	/** Attribut Atelier: Liste element **/
-	private List<ElementEspace> element;
+	Scanner entree = new Scanner(System.in);
+	private ArrayList<Ilot> listeIlots;
+	private ArrayList<Convoyeur> listeConvoy;
+	private ArrayList<Gamme> listeGammes;
+	private ArrayList<Operation> listeOperations;
+	private Stock stockMP;
+	private Stock stockPF;
 	
 	/**
 	 * Constructeur d'un Atelier
 	 */
 	public Atelier() {
-		element = new ArrayList<ElementEspace>();
+
+	}
+	
+	/** 
+	 * Configuration des îlots de l'atelier 
+	 */
+	public void configIlots() {
+		System.out.println("Combien d'îlots y a-t'il dans votre atelier?");
+		listeIlots=new ArrayList<Ilot>(entree.nextInt());
+		for(int i=0; i<listeIlots.size(); i++) {
+			System.out.println("Quel est la position en X de l'îlot "+i+"?");
+			int ilotX=entree.nextInt();
+			System.out.println("Quel est la position en Y de l'îlot "+i+"?");
+			int ilotY=entree.nextInt();
+			System.out.println("Combien de pieces en attente l'îlot "+i+" peut-il accueillir?");
+			int fileIlot=entree.nextInt();
+			System.out.println("Combien de machines l'îlot "+i+" contient-il?");
+			int tailleIlot=entree.nextInt();
+			System.out.println("Quel est le type de machines de l'îlot "+i+"?");
+			String typeIlot=entree.next();
+			TypeMachines m = new TypeMachines(typeIlot);
+			listeIlots.add(new Ilot(m, ilotX, ilotY, fileIlot));
+			for(int j=0; j<tailleIlot; j++) {
+				listeIlots.get(i).AjoutMachine(new Machine(m));
+			}
+		}
+	}
+	
+	/** 
+	 * Configuration des convoyeurs de l'atelier 
+	 */
+	public void configConvoy() {
+		System.out.println("Combien de convoyeurs y a-t'il dans votre atelier?");
+		listeConvoy=new ArrayList<Convoyeur>(entree.nextInt());
+		System.out.println("Quelle est leur vitesse?");
+		int vitesse=entree.nextInt();
+		//Les convoyeurs entrent dans l'atelier par une porte située en (0;0)
+		for (int i=0; i<listeConvoy.size(); i++) {
+			listeConvoy.add(new Convoyeur(0,0,1,vitesse));
+		}
+	}
+	
+	/** 
+	 * Configuration des stocks de l'atelier 
+	 */
+	public void configStocks() {
+		//Stock de matières premières
+		System.out.println("Quel est la position en X du stock de matières premières?");
+		int smpX=entree.nextInt();
+		System.out.println("Quel est la position en Y du stock de matières premières?");
+		int smpY=entree.nextInt();
+		stockMP = new Stock("MP",smpX,smpY);
+		
+		//Stock de pièces finies
+		System.out.println("Quel est la position en X du stock de pièces finies?");
+		int spfX=entree.nextInt();
+		System.out.println("Quel est la position en Y du stock de pièces finies?");
+		int spfY=entree.nextInt();
+		stockPF = new Stock("PF",spfX,spfY);
+	}
+	
+	public void configOperation() {
+		listeOperations = new ArrayList<Operation>(5);
+	}
+	
+	public void configGammes() {
+		System.out.println("Combien de gammes de produits voulez-vous produire?");
+		listeGammes = new ArrayList<Gamme>(entree.nextInt());
+		for (int i=0; i<listeGammes.size(); i++) {
+			System.out.println("Quel est le nom de la gamme "+i+"?");
+			listeGammes.add(new Gamme(entree.next()));
+			System.out.println("Quel opération le produit doit-il subir?");
+			String choix="y";
+			while(choix!="n") {
+				System.out.println("Differentes opérations :");
+				for(int j=0; j<listeOperations.size(); j++) {
+					System.out.println((i+1)+" - "+listeOperations.get(i).getType());
+				}
+				int choixOp = entree.nextInt();
+				Operation operation=null;
+				for(int j2=0; j2<listeOperations.size(); j2++) {
+					if(choixOp==j2+1) {
+						operation=listeOperations.get(j2);
+					}
+				}
+				if(operation==null) {
+					System.out.println("Cette opération n'existe pas");
+				} else {
+					listeGammes.get(i).ajoutPhase(operation);
+					System.out.println("Le produit doit-il subir une autre opération? (y/n)");
+					choix=entree.next().toLowerCase();
+				}
+			}
+		}
 	}
 
 	/** Getter d'un element **/
