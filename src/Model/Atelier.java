@@ -31,6 +31,9 @@ public class Atelier {
 	 * Configuration des îlots de l'atelier 
 	 */
 	public void configIlots() {
+		System.out.println("");
+		System.out.println("-- Configuration des îlots");
+		System.out.println("");
 		System.out.println("Combien d'îlots y a-t'il dans votre atelier?");
 		listeIlots=new ArrayList<Ilot>(entree.nextInt());
 		for(int i=0; i<listeIlots.size(); i++) {
@@ -56,6 +59,9 @@ public class Atelier {
 	 * Configuration des convoyeurs de l'atelier 
 	 */
 	public void configConvoy() {
+		System.out.println("");
+		System.out.println("-- Configuration des convoyeurs");
+		System.out.println("");
 		System.out.println("Combien de convoyeurs y a-t'il dans votre atelier?");
 		listeConvoy=new ArrayList<Convoyeur>(entree.nextInt());
 		System.out.println("Quelle est leur vitesse?");
@@ -70,6 +76,9 @@ public class Atelier {
 	 * Configuration des stocks de l'atelier 
 	 */
 	public void configStocks() {
+		System.out.println("");
+		System.out.println("-- Configuration des stocks");
+		System.out.println("");
 		//Stock de matières premières
 		System.out.println("Quel est la position en X du stock de matières premières?");
 		int smpX=entree.nextInt();
@@ -85,11 +94,31 @@ public class Atelier {
 		stockPF = new Stock("PF",spfX,spfY);
 	}
 	
-	public void configOperation() {
-		listeOperations = new ArrayList<Operation>(5);
+	/** 
+	 * Configuration des opérations de l'atelier 
+	 */
+	public void configOperations() {
+		System.out.println("");
+		System.out.println("-- Configuration des opérations");
+		System.out.println("");
+		//On assume qu'il y a autant de types d'opérations que d'îlots
+		listeOperations = new ArrayList<Operation>(listeIlots.size());
+		for(int i=0; i<listeOperations.size(); i++) {
+			System.out.println("Quel est le type de l'opération "+i+"?");
+			String type = entree.next();
+			System.out.println("Quel est son temps de traitement?");
+			int tps = entree.nextInt();
+			listeOperations.add(new Operation(tps, type));
+		}
 	}
 	
+	/** 
+	 * Configuration des gammes de produits de l'atelier 
+	 */
 	public void configGammes() {
+		System.out.println("");
+		System.out.println("-- Configuration des gammes");
+		System.out.println("");
 		System.out.println("Combien de gammes de produits voulez-vous produire?");
 		listeGammes = new ArrayList<Gamme>(entree.nextInt());
 		for (int i=0; i<listeGammes.size(); i++) {
