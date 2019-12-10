@@ -14,7 +14,6 @@ public class Controller {
 	
 	public void lancerSimulation() {
 		configurationAtelier();
-		modifierConfig();
 		simuler();
 	}
 	
@@ -23,14 +22,11 @@ public class Controller {
 		atelier.configIlots();
 		atelier.configConvoy();
 		atelier.configStocks();
+		atelier.configOperations();
+		atelier.configGammes();
 	}
 	
 	public void configurationProduits() {
-		
-		
-	}
-	
-	public void modifierConfig() {
 		
 	}
 	
