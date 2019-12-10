@@ -7,7 +7,6 @@ public class Controller {
 	private int tpsTotalTrait=0;
 	Scanner entree = new Scanner(System.in);
 	private Atelier atelier;
-	private int nbGammes;
 	
 	public double calculDistance(ElementEspace a, ElementEspace b) {
 		return Math.sqrt(Math.pow(b.getPositionY()-a.getPositionY(),2)+Math.pow(b.getPositionX()-a.getPositionX(),2));
@@ -27,9 +26,7 @@ public class Controller {
 	}
 	
 	public void configurationProduits() {
-		//Configuration des îlots
-		System.out.println("Combien de gammes de produits voulez-vous produire?");
-		nbGammes=entree.nextInt();
+		
 		
 	}
 	
