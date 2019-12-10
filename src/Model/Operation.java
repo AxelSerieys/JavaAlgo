@@ -1,5 +1,9 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Operation à effectuer sur un Produit
  * @author nathan
@@ -12,6 +16,48 @@ public class Operation {
 	
 	/** Attribut d'une Operation: type d'Operation **/
 	private String type;
+	
+	/** Liste des operations **/
+	public static List<Operation> listeOperation =  new ArrayList<>();
+	
+	/**
+	 * Constructeur Operation
+	 * @param tpsRealisation: temps de realisation d'une operation
+	 * @param type: type d'operation
+	 */
+	public Operation(int tpsRealisation, String type) {
+		this.tempsRealisation = tpsRealisation;
+		this.type = type;
+	}
+	
+	/**
+	 * Ajoute une operation aux operation possible d'effectuer
+	 * @param operation: operation a ajouter dans la liste
+	 */
+	public static void ajoutOperation(Operation operation) {
+		listeOperation.add(operation);
+	}
+	
+	/**
+	 * Supprime une operation
+	 * @param operation: operation à supprimer
+	 */
+	public static void supprOperation(Operation operation) {
+		for (int i = 0; i < listeOperation.size(); i++) {
+			if (listeOperation.get(i).equals(operation)) {
+				listeOperation.remove(i);
+			}
+		}
+	}
+	
+	/**
+	 * Affiche la liste des operations
+	 * @return la liste des operations
+	 */
+	public List<Operation> afficheListeOperation() {
+		return listeOperation;
+		
+	}
 
 	/** Getter temps de réalisation d'une Operation **/
 	public int getTempsRealisation() {
@@ -32,6 +78,4 @@ public class Operation {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	
 }

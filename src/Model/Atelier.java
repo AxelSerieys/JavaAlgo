@@ -11,6 +11,13 @@ public class Atelier {
 	
 	/** Attribut Atelier: Liste element **/
 	private List<ElementEspace> element;
+	
+	/**
+	 * Constructeur d'un Atelier
+	 */
+	public Atelier() {
+		element = new ArrayList<ElementEspace>();
+	}
 
 	/** Getter d'un element **/
 	public List<ElementEspace> getElement() {
@@ -21,6 +28,4 @@ public class Atelier {
 	public void setElement(List<ElementEspace> element) {
 		this.element = element;
 	}
-	
-	
 }
