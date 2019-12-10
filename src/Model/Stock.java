@@ -66,4 +66,12 @@ public class Stock extends ElementEspace{
 	public void removeProduit(int index) {
 		produits.remove(index);
 	}
+	
+	/**
+	 * Retourne la liste des produits dans le stock
+	 * @return List<Produit> la liste des produits dans le stock
+	 */
+	public List<Produit> getProduits() {
+		return this.produits;
+	}
 }
