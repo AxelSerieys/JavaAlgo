@@ -112,7 +112,7 @@ public class Atelier {
 	}
 	
 	/**
-	 * iste des produits à fabriquer
+	 * Liste des produits à fabriquer
 	 * @return Object[][] nom de la gamme, nombre de produits dans cette gamme
 	 */
 	public Object[][] nbProduitsAFabriquer() { //Nom de la gamme, nbre de produit de cette gamme
