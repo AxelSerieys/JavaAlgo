@@ -26,14 +26,6 @@ public class Stock extends ElementEspace{
 		this.produits = new ArrayList<Produit>();
 	}
 	
-	/**
-	 * Change le type du stock
-	 * @param type  le nouveau type
-	 */
-	@Deprecated
-	public void setType(String type) {
-		this.type = type;
-	}
 	
 	/**
 	 * Retourne le type du stock
