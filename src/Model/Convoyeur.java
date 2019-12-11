@@ -52,6 +52,14 @@ public class Convoyeur extends ElementEspace{
 	}
 	
 	/**
+	 * libere le produit à transporter par le convoyeur
+	 * @param produit  le produit à transporter
+	 */
+	public void dropProduit() {
+		this.produit = null;
+	}
+	
+	/**
 	 * Retourne le produit qui est transporté par le convoyeur
 	 * @return Produit - le produit transporté
 	 */

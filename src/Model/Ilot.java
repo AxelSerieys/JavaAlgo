@@ -8,8 +8,8 @@ import java.util.*;
  */
 
 public class Ilot extends ElementEspace{
-	private ArrayList<String> fileAttenteEntree;
-	private ArrayList<String> fileAttenteSortie;
+	private ArrayList<Produit> fileAttenteEntree;
+	private ArrayList<Produit> fileAttenteSortie;
 	private int nbMachines;
 	private TypeMachines type;
 	private Operation operation;
@@ -19,12 +19,12 @@ public class Ilot extends ElementEspace{
 	 * @param type : le type de machines composant l'îlot
 	 * @param x : position en x de l'îlot
 	 * @param y : position en y de l'îlot
-	 * @param taille : taille des files d'attentes de l'îlot
+	 * @param op : Operation liée à l'îlot
 	 */
-	public Ilot(TypeMachines type, int x, int y, int taille, Operation op) {
+	public Ilot(TypeMachines type, int x, int y, Operation op) {
 		super(x,y);
-		fileAttenteEntree=new ArrayList<String>(taille);
-		fileAttenteSortie=new ArrayList<String>(taille);
+		fileAttenteEntree=new ArrayList<Produit>();
+		fileAttenteSortie=new ArrayList<Produit>();
 		this.type=type;
 		this.operation=op;
 	}
@@ -39,6 +39,10 @@ public class Ilot extends ElementEspace{
 		} else {
 			System.out.println("Type de la machine different de celui accépté par l'îlot");
 		}
+	}
+	
+	public void ajoutPdt(Produit pdt) {
+		fileAttenteEntree.add(pdt);
 	}
 	
 	/**
