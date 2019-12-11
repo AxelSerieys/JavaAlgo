@@ -35,12 +35,12 @@ class IlotTest {
 		Machine m2 = new Machine(new TypeMachines(type2));
 		
 		assertEquals(0, i.getListeMachines().size());		
-		i.AjoutMachine(m);
+		i.ajoutMachine(m);
 		
 		assertEquals(m, i.getListeMachines().get(0));
 		assertEquals(1, i.getListeMachines().size());
 		
-		i.AjoutMachine(m2);
+		i.ajoutMachine(m2);
 		assertEquals(1, i.getListeMachines().size());
 	}
 	
