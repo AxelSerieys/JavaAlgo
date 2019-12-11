@@ -58,6 +58,10 @@ public class Operation {
 		return listeOperation;
 		
 	}
+	
+	public void decrementerTempsRealisation() {
+		this.tempsRealisation--;
+	}
 
 	/** Getter temps de réalisation d'une Operation **/
 	public int getTempsRealisation() {
