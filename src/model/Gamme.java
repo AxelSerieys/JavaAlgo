@@ -1,6 +1,7 @@
-package Model;
+package model;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Gamme d'un produit 
@@ -10,14 +11,13 @@ import java.util.LinkedList;
 public class Gamme {
 	
 	/** Attribut d'une Gamme: Liste Chainee **/
-	public static LinkedList<Operation> listeGamme;
+	private static List<Operation> listeGamme = new LinkedList<>();
 	private String nom;
 	
 	/**
 	 * Constructeur de la Gamme d'un produit
 	 */
 	public Gamme(String nom) {
-		listeGamme = new LinkedList<Operation>();
 		this.nom=nom;
 	}
 	
@@ -43,18 +43,21 @@ public class Gamme {
 	 * @param operation
 	 */
 	public void supprPhase(Operation operation) {
+		int index = -1;
 		for (int i = 0; i < listeGamme.size(); i++) {
 			if (listeGamme.get(i).equals(operation)) {
-				listeGamme.remove(i);
+				index = i;
 			}
 		}
+		
+		listeGamme.remove(index);
 	}
 
 	/** 
 	 * Getter d'une Gamme
 	 * @return une liste contenant les operations de la gamme
 	 */
-	public LinkedList<Operation> getListeGamme() {
+	public List<Operation> getListeGamme() {
 		return listeGamme;
 	}
 	
@@ -71,8 +74,8 @@ public class Gamme {
 	 * Setter d'une Gamme
 	 * @param listeGamme: la liste de la Gamme 
 	 */
-	public void setGamme(LinkedList<Operation> listeGamme) {
-		this.listeGamme = listeGamme;
+	public static void setGamme(List<Operation> listeGamme) {
+		Gamme.listeGamme = listeGamme;
 	}
 	
 	/** 

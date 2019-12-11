@@ -1,5 +1,6 @@
-package Model;
+package model;
 import java.util.*;
+import java.util.logging.*;
 
 /**
  * Îlot composé de machines
@@ -9,10 +10,11 @@ import java.util.*;
 
 public class Ilot extends ElementEspace{
 	private ArrayList<Produit> fileAttenteEntree;
-	private ArrayList<Produit> fileAttenteSortie;
+	//fileAttenteSortie n'est pas utilisée dans cette version
 	private ArrayList<Machine> fileMachines;
 	private TypeMachines type;
 	private Operation operation;
+	private Logger logger = Logger.getLogger("logger");
 	
 	/**
 	 * Crée un îlot
@@ -23,11 +25,10 @@ public class Ilot extends ElementEspace{
 	 */
 	public Ilot(TypeMachines type, int x, int y, Operation op) {
 		super(x,y);
-		fileAttenteEntree=new ArrayList<Produit>();
-		fileAttenteSortie=new ArrayList<Produit>();
-		this.type=type;
-		this.operation=op;
-		this.fileMachines = new ArrayList<Machine>();
+		fileAttenteEntree = new ArrayList<>();
+		this.type = type;
+		this.operation = op;
+		this.fileMachines = new ArrayList<>();
 	}
 	
 	/**
@@ -35,10 +36,10 @@ public class Ilot extends ElementEspace{
 	 * @param machine : machine à ajouter à l'îlot
 	 */
 	public void ajoutMachine(Machine machine) {
-		if(machine.getType()==this.type.getType()) {
+		if(machine.getType().equals(this.type.getType())) {
 			this.fileMachines.add(machine);
 		} else {
-			System.out.println("Type de la machine different de celui accépté par l'îlot");
+			logger.log(Level.INFO, "Type de la machine different de celui accépté par l'îlot");
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class Operation {
 	private String type;
 	
 	/** Liste des operations **/
-	public static List<Operation> listeOperation =  new ArrayList<>();
+	private static List<Operation> listeOperation =  new ArrayList<>();
 	
 	/**
 	 * Constructeur Operation
@@ -27,6 +27,10 @@ public class Operation {
 	public Operation(int tpsRealisation, String type) {
 		this.tempsRealisation = tpsRealisation;
 		this.type = type;
+	}
+	
+	public static List<Operation> getListOperation() {
+		return Operation.listeOperation;
 	}
 	
 	/**
@@ -42,11 +46,14 @@ public class Operation {
 	 * @param operation: operation à supprimer
 	 */
 	public static void supprOperation(Operation operation) {
+		int toRemove = -1;
 		for (int i = 0; i < listeOperation.size(); i++) {
 			if (listeOperation.get(i).equals(operation)) {
-				listeOperation.remove(i);
+				toRemove = i;
 			}
 		}
+		
+		listeOperation.remove(toRemove);
 	}
 	
 	/**

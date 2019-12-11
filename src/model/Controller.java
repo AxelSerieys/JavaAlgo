@@ -1,13 +1,14 @@
-package Model;
+package model;
 
 import java.util.List;
-import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Controller {
 	private int tpsTotalTrait=0;
-	private Scanner entree = new Scanner(System.in);
 	private Atelier atelier;
 	private int nbProduitsFab;
+	private Logger logger = Logger.getLogger("logger");
 	
 	/**
 	 * Calcule la distance entre deux éléments de l'espace
@@ -16,7 +17,7 @@ public class Controller {
 	 * @return : la distance entre les deux éléments
 	 */
 	public double calculDistance(ElementEspace a, ElementEspace b) {
-		return Math.sqrt(Math.pow(b.getPositionY()-a.getPositionY(),2)+Math.pow(b.getPositionX()-a.getPositionX(),2));
+		return Math.sqrt(Math.pow((double) b.getPositionY()-a.getPositionY(),2)+Math.pow((double)b.getPositionX()-a.getPositionX(),2));
 	}
 	
 	/**
@@ -108,14 +109,14 @@ public class Controller {
 		}
 		
 		//Affichage des résultats
-		System.out.println("Simulation terminée :");
-		System.out.println("Durée : " + tpsTotalTrait);
-		System.out.println("Pièces fabriquées :");
+		logger.log(Level.INFO, "Simulation terminée :");
+		logger.log(Level.INFO, "Durée : {}", tpsTotalTrait);
+		logger.log(Level.INFO, "Pièces fabriquées :");
 		for(int i = 0; i < result.length; i++) {
-			System.out.println(result[i] + " éléments fabriqués de " + resultGammes[i]);
+			logger.log(Level.INFO, "{0} éléments fabriqués de {1}", new Object[] {result[i], resultGammes[i]});
 		}
 		
-		System.out.println("Fin du programme.");
+		logger.log(Level.INFO, "Fin du programme.");
 	}
 	
 	/**

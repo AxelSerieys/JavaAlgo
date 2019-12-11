@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * Element de l'espace, permet le calcul des distances

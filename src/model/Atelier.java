@@ -1,6 +1,8 @@
-package Model;
+package model;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,34 +16,33 @@ public class Atelier {
 	/** Attribut Atelier: Liste element **/
 	private Scanner entree = new Scanner(System.in);
 	private ArrayList<Ilot> listeIlots;
-	private ArrayList<Convoyeur> listeConvoy;
 	private ArrayList<Gamme> listeGammes;
 	private ArrayList<Operation> listeOperations;
 	private Stock stockMP;
 	private Stock stockPF;
-	private Object [][] tabPdts;
+	private Logger logger = Logger.getLogger("logger");
 	
 	/** 
 	 * Configuration des îlots de l'atelier et de leur opération 
 	 */
 	public void configIlots() {
-		System.out.println("");
-		System.out.println("-- Configuration des îlots");
-		System.out.println("");
-		System.out.println("Combien d'îlots y a-t'il dans votre atelier?");
-		listeIlots=new ArrayList<Ilot>(entree.nextInt());
+		logger.log(Level.INFO, "");
+		logger.log(Level.INFO, "-- Configuration des îlots");
+		logger.log(Level.INFO, "");
+		logger.log(Level.INFO, "Combien d'îlots y a-t'il dans votre atelier?");
+		listeIlots=new ArrayList<>(entree.nextInt());
 		for(int i=0; i<listeIlots.size(); i++) {
-			System.out.println("Quel est la position en X de l'îlot "+i+"?");
+			logger.log(Level.INFO, "Quelle est la position en X de l''îlot {}?", i);
 			int ilotX=entree.nextInt();
-			System.out.println("Quel est la position en Y de l'îlot "+i+"?");
+			logger.log(Level.INFO, "Quelle est la position en Y de l''îlot {}?", i);
 			int ilotY=entree.nextInt();
-			System.out.println("Combien de machines l'îlot "+i+" contient-il?");
+			logger.log(Level.INFO, "Combien de machines l''îlot {} contient-il?", i);
 			int tailleIlot=entree.nextInt();
-			System.out.println("Quel est le type de machines de l'îlot "+i+"?");
+			logger.log(Level.INFO, "Quel est le type de machines de ''îlot {}?", i);
 			String typeIlot=entree.next();
-			System.out.println("Quelle opération cet îlot effectue-t-il?");
+			logger.log(Level.INFO, "Quelle opération cet îlot effectue-t-il?");
 			String type = entree.next();
-			System.out.println("Quel est son temps de traitement?");
+			logger.log(Level.INFO, "Quel est son temps de traitement?");
 			int tps = entree.nextInt();
 			listeOperations.add(new Operation(tps, type));
 			TypeMachines m = new TypeMachines(typeIlot);
@@ -56,20 +57,20 @@ public class Atelier {
 	 * Configuration des stocks de l'atelier 
 	 */
 	public void configStocks() {
-		System.out.println("");
-		System.out.println("-- Configuration des stocks");
-		System.out.println("");
+		logger.log(Level.INFO, "");
+		logger.log(Level.INFO, "-- Configuration des stocks");
+		logger.log(Level.INFO, "");
 		//Stock de matières premières
-		System.out.println("Quel est la position en X du stock de matières premières?");
+		logger.log(Level.INFO, "Quel est la position en X du stock de matières premières?");
 		int smpX=entree.nextInt();
-		System.out.println("Quel est la position en Y du stock de matières premières?");
+		logger.log(Level.INFO, "Quel est la position en Y du stock de matières premières?");
 		int smpY=entree.nextInt();
 		stockMP = new Stock("MP",smpX,smpY);
 		
 		//Stock de pièces finies
-		System.out.println("Quel est la position en X du stock de pièces finies?");
+		logger.log(Level.INFO, "Quel est la position en X du stock de pièces finies?");
 		int spfX=entree.nextInt();
-		System.out.println("Quel est la position en Y du stock de pièces finies?");
+		logger.log(Level.INFO, "Quel est la position en Y du stock de pièces finies?");
 		int spfY=entree.nextInt();
 		stockPF = new Stock("PF",spfX,spfY);
 	}
@@ -78,20 +79,20 @@ public class Atelier {
 	 * Configuration des gammes de produits de l'atelier 
 	 */
 	public void configGammes() {
-		System.out.println("");
-		System.out.println("-- Configuration des gammes");
-		System.out.println("");
-		System.out.println("Combien de gammes de produits voulez-vous produire?");
-		listeGammes = new ArrayList<Gamme>(entree.nextInt());
+		logger.log(Level.INFO, "");
+		logger.log(Level.INFO, "-- Configuration des gammes");
+		logger.log(Level.INFO, "");
+		logger.log(Level.INFO, "Combien de gammes de produits voulez-vous produire?");
+		listeGammes = new ArrayList<>(entree.nextInt());
 		for (int i=0; i<listeGammes.size(); i++) {
-			System.out.println("Quel est le nom de la gamme "+i+"?");
+			logger.log(Level.INFO, "Quel est le nom de la gamme {}?", i);
 			listeGammes.add(new Gamme(entree.next()));
-			System.out.println("Quel opération le produit doit-il subir?");
+			logger.log(Level.INFO, "Quel opération le produit doit-il subir?");
 			String choix="y";
-			while(choix!="n") {
-				System.out.println("Differentes opérations :");
+			while(!choix.equals("n")) {
+				logger.log(Level.INFO, "Differentes opérations :");
 				for(int j=0; j<listeOperations.size(); j++) {
-					System.out.println((i+1)+" - "+listeOperations.get(i).getType());
+					logger.log(Level.INFO, "{0} - {1}", new Object[] {(i+1), listeOperations.get(i).getType()});
 				}
 				int choixOp = entree.nextInt();
 				Operation operation=null;
@@ -101,10 +102,10 @@ public class Atelier {
 					}
 				}
 				if(operation==null) {
-					System.out.println("Cette opération n'existe pas");
+					logger.log(Level.INFO, "Cette opération n'existe pas");
 				} else {
 					listeGammes.get(i).ajoutPhase(operation);
-					System.out.println("Le produit doit-il subir une autre opération? (y/n)");
+					logger.log(Level.INFO, "Le produit doit-il subir une autre opération? (y/n)");
 					choix=entree.next().toLowerCase();
 				}
 			}
@@ -116,10 +117,11 @@ public class Atelier {
 	 * @return Object[][] nom de la gamme, nombre de produits dans cette gamme
 	 */
 	public Object[][] nbProduitsAFabriquer() { //Nom de la gamme, nbre de produit de cette gamme
+		Object[][] tabPdts;
 		tabPdts = new Object [listeGammes.size()][2];
 		for (int i=0; i<listeGammes.size(); i++) {
 			tabPdts[i][0]=listeGammes.get(i).getNom();
-			System.out.println("Combien de pièces de la gamme "+listeGammes.get(i).getNom()+" voulez vous produire?");
+			logger.log(Level.INFO, "Combien de pièces de la gamme "+listeGammes.get(i).getNom()+" voulez vous produire?");
 			tabPdts[i][1]=entree.nextInt();
 		}
 		return tabPdts;
@@ -169,7 +171,7 @@ public class Atelier {
 	 */
 	public Ilot getIlot(String type) {
 		for(Ilot i : listeIlots)
-			if(i.getType() == type)
+			if(i.getType().equals(type))
 				return i;
 		
 		return null;
@@ -197,7 +199,7 @@ public class Atelier {
 			}
 		}
 		if(j==-1) {
-			System.out.println("Operation inexistante");
+			logger.log(Level.INFO, "Operation inexistante");
 		}
 		return listeIlots.get(j);
 	}
@@ -210,12 +212,12 @@ public class Atelier {
 	public Gamme getGammePdt(Produit pdt) {
 		int j=-1;
 		for(int i=0; i<listeGammes.size(); i++) {
-			if(listeGammes.get(i).getNom()==pdt.getType()) {
+			if(listeGammes.get(i).getNom().equals(pdt.getType())) {
 				j = i;
 			}
 		}
 		if(j==-1) {
-			System.out.println("Operation inexistante");
+			logger.log(Level.INFO, "Operation inexistante");
 		}
 		return listeGammes.get(j);
 	}

@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * Chaque machine a un type qui définit ce qu'elle fait

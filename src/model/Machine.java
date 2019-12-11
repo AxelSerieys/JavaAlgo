@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * Machine modifiant des pièces
