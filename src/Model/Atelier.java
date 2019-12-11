@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Atelier {
 	
 	/** Attribut Atelier: Liste element **/
-	Scanner entree = new Scanner(System.in);
+	private Scanner entree = new Scanner(System.in);
 	private ArrayList<Ilot> listeIlots;
 	private ArrayList<Convoyeur> listeConvoy;
 	private ArrayList<Gamme> listeGammes;
