@@ -70,5 +70,29 @@ class ConvoyeurTest {
 		
 		assertEquals(capacite, c.getCapacite());
 	}
+	
+	/**
+	 * Teste la fonction drop produit
+	 */
+	@Test
+	void testDropProduit() {
+		Produit p = new Produit("oui", 2);
+		Convoyeur c = new Convoyeur(1, 2, 3, 4);
+		c.setProduit(p);
+		
+		assertEquals(p, c.getProduit());
+		c.dropProduit();
+		assertNull(c.getProduit());
+	}
+	
+	@Test
+	void testDeplacement() {
+		Convoyeur c = new Convoyeur(1, 2, 3, 4);
+		assertFalse(c.getDeplacement());
+		c.setDeplacement(true);
+		assertTrue(c.getDeplacement());
+		c.setDeplacement(false);
+		assertFalse(c.getDeplacement());
+	}
 
 }
