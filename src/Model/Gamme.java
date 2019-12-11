@@ -57,6 +57,15 @@ public class Gamme {
 	public LinkedList<Operation> getListeGamme() {
 		return listeGamme;
 	}
+	
+	/**
+	 * Retourne l'opération d'un produit donné
+	 * @param p le produit
+	 * @return Operation, l'opération du produit
+	 */
+	public Operation getOperation(Produit p) {
+		return listeGamme.get(p.getNumeroPhase());
+	}
 
 	/** 
 	 * Setter d'une Gamme
