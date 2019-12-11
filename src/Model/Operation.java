@@ -59,6 +59,9 @@ public class Operation {
 		
 	}
 	
+	/**
+	 * Décrémente le temps de réalisation restant pour une opération
+	 */
 	public void decrementerTempsRealisation() {
 		this.tempsRealisation--;
 	}
