@@ -26,7 +26,7 @@ public class Controller {
 		configurationAtelier();
 		configurationProduits();
 		simuler();
-		finSimultation();
+		finSimulation();
 	}
 	
 	/**
@@ -94,7 +94,7 @@ public class Controller {
 	/**
 	 * Affiche les résultats de la simulation 
 	 */
-	public void finSimultation() {
+	public void finSimulation() {
 		//Calcul des résultats
 		String[] resultGammes = new String[atelier.getNbGammes()];
 		int[] result = new int[atelier.getNbGammes()];
