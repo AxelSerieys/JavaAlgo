@@ -67,10 +67,18 @@ public class Convoyeur extends ElementEspace{
 		return this.produit;
 	}
 	
+	/**
+	 * Déclare le convoyeur en déplacement ou non en fonction du paramètre
+	 * @param b : la valeur bolléenne du déplacement
+	 */
 	public void setDeplacement(boolean b) {
 		this.deplacement=b;
 	}
 	
+	/**
+	 * Retourne true si le convoyeur est en déplacement, sinon false
+	 * @return boolean, la valeur booléenne du déplacement
+	 */
 	public boolean getDeplacement() {
 		return this.deplacement;
 	}
