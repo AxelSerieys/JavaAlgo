@@ -12,12 +12,12 @@ class OperationTest {
 
 	private Logger logger = Logger.getLogger("logger");
 	private static final String SEPARATOR = "==================";
-	private static final String DECOUPAGE = "Découpage";
+	private static final String DECOUPAGE = "Découpage"; 
 	
 	/**
 	 * Test creation operation
 	 */
-	@Ignore
+	@Test
 	void test() {
 		Operation ope1 = new Operation(45, DECOUPAGE);
 		logger.log(Level.INFO, "{0} {1}", new Object[] {ope1.getTempsRealisation(), ope1.getType()});
@@ -27,7 +27,7 @@ class OperationTest {
 	/**
 	 * Test ajout operation et son affichage 
 	 */
-	@Ignore
+	@Test
 	void test1() {
 		Operation ope1 = new Operation(45, DECOUPAGE);
 		Operation ope2 = new Operation(5,"Nettoyage");
