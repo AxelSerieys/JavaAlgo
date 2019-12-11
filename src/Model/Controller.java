@@ -1,6 +1,6 @@
 package Model;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
@@ -26,6 +26,7 @@ public class Controller {
 		configurationAtelier();
 		configurationProduits();
 		simuler();
+		finSimultation();
 	}
 	
 	/**
@@ -88,6 +89,33 @@ public class Controller {
 			
 			tpsTotalTrait++;
 		}
+	}
+	
+	/**
+	 * Affiche les résultats de la simulation 
+	 */
+	public void finSimultation() {
+		//Calcul des résultats
+		String[] resultGammes = new String[atelier.getNbGammes()];
+		int[] result = new int[atelier.getNbGammes()];
+		
+		List<Produit> produits = atelier.getStockPF().getProduits();
+		for(int i = 0; i < produits.size(); i++) {
+			Produit p = produits.get(i);
+			Gamme gamme = atelier.getGammePdt(p);
+			resultGammes[i] = gamme.getNom();
+			result[i]++;
+		}
+		
+		//Affichage des résultats
+		System.out.println("Simulation terminée :");
+		System.out.println("Durée : " + tpsTotalTrait);
+		System.out.println("Pièces fabriquées :");
+		for(int i = 0; i < result.length; i++) {
+			System.out.println(result[i] + " éléments fabriqués de " + resultGammes[i]);
+		}
+		
+		System.out.println("Fin du programme.");
 	}
 	
 	/**
