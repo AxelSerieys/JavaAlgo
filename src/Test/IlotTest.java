@@ -12,6 +12,9 @@ import Model.TypeMachines;
 
 class IlotTest {
 
+	/**
+	 * Teste la méthode getType() d'un Îlot après sa création
+	 */
 	@Test
 	void testTypeIlot() {
 		String type = "type";
@@ -20,6 +23,9 @@ class IlotTest {
 		assertEquals(type, i.getType());
 	}
 	
+	/**
+	 * Teste l'ajout de machines dans un îlot
+	 */
 	@Test
 	void testGestionMachine() {
 		String type="type";
@@ -38,6 +44,9 @@ class IlotTest {
 		assertEquals(1, i.getListeMachines().size());
 	}
 	
+	/**
+	 * Teste l'ajout de produits dans l'îlot
+	 */
 	@Test
 	void testGestionProduit() {
 		Produit p = new Produit("type", 1);
@@ -48,6 +57,9 @@ class IlotTest {
 		assertEquals(1, i.getFileAttenteEntree().size());		
 	}
 	
+	/**
+	 * Teste la méthode getOperation() d'Îlot
+	 */
 	@Test
 	void testOperation() {
 		Operation o = new Operation(1, "type");

@@ -21,15 +21,6 @@ class StockTest {
 		assertNotEquals(null, stock);
 	}
 	
-	@Test
-	void testSetType() {
-		String type="oui";
-		Stock stock = new Stock("1", 1, 1);
-		stock.setType(type);
-		
-		assertEquals(type, stock.getType());
-	}
-	
 	/**
 	 * On vérifie que le type de stock passé dans le constructeur est bien retourné par getType()
 	 */

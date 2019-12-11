@@ -8,6 +8,9 @@ import Model.ElementEspace;
 
 class ElementEspaceTest {
 
+	/**
+	 * Teste la création d'un convoyeur
+	 */
 	@Test
 	void testElementEspace() {
 		int posX = 1;

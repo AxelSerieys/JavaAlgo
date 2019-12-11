@@ -9,6 +9,9 @@ import Model.Operation;
 
 class GammeTest {
 
+	/**
+	 * Test de la classe Gamme
+	 */
 	@Test
 	void test() {
 		Gamme gamme1 = new Gamme("GammeProduit");

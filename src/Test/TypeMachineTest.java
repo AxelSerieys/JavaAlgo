@@ -8,6 +8,9 @@ import Model.TypeMachines;
 
 class TypeMachineTest {
 
+	/**
+	 * Teste la méthode getType() après la création d'un TypeMachine
+	 */
 	@Test
 	void testTypeMachine() {
 		String type = "type";
