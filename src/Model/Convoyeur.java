@@ -83,22 +83,4 @@ public class Convoyeur extends ElementEspace{
 		return this.deplacement;
 	}
 
-	/**
-	 * Change la capacité du convoyeur
-	 * @param capacite  la nouvelle capacité du convoyeur
-	 */
-	@Deprecated
-	public void setCapacite(int capacite) {
-		this.capacite = capacite;
-	}
-	
-	/**
-	 * Change la vitesse de déplacement du convoyeur
-	 * @param vitesseDeplacement  sa nouvelle vitese de déplacement
-	 */
-	@Deprecated
-	public void setVitesseDeplacement(int vitesseDeplacement) {
-		this.vitesseDeplacement = vitesseDeplacement;
-	}
-
 }

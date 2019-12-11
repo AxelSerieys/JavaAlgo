@@ -48,30 +48,6 @@ class ConvoyeurTest {
 	}
 	
 	/**
-	 * On teste la méthode setVitesseDeplacement qui met à jour la vitesse de déplacement d'un convoyeur
-	 */
-	@Test
-	void testSetVitesseDeplacement() {
-		int vitesse=32;
-		Convoyeur c = new Convoyeur(1, 2, 3, 4);
-		c.setVitesseDeplacement(vitesse);
-		
-		assertEquals(vitesse, c.getVitesseDeplacement());
-	}
-	
-	/**
-	 * On teste la méthode setCapacite qui met à jour la capacité maximale d'un convoyeur
-	 */
-	@Test
-	void testSetCapacite() {
-		int capacite=12;
-		Convoyeur c = new Convoyeur(1, 2, 3, 4);
-		c.setCapacite(capacite);
-		
-		assertEquals(capacite, c.getCapacite());
-	}
-	
-	/**
 	 * Teste la fonction drop produit
 	 */
 	@Test
