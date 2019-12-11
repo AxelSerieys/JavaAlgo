@@ -19,14 +19,24 @@ public class Machine {
 		this.utilise=false;
 	}
 	
+	/**
+	 * Change l'état de la machine à "utilisé"
+	 */
 	public void estUtil() {
 		this.utilise=true;
 	}
 	
+	/**
+	 * Change l'état de la machine à "non utilisé"
+	 */
 	public void pasUtil() {
 		this.utilise=false;
 	}
 	
+	/**
+	 * Renvoie l'état de la machine
+	 * @return true si la machine est utilisée, false sinon
+	 */
 	public boolean getUtil() {
 		return this.utilise;
 	}
