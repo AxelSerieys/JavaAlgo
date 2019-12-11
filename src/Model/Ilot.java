@@ -34,7 +34,7 @@ public class Ilot extends ElementEspace{
 	 * Ajoute une machine à l'îlot
 	 * @param machine : machine à ajouter à l'îlot
 	 */
-	public void AjoutMachine(Machine machine) {
+	public void ajoutMachine(Machine machine) {
 		if(machine.getType()==this.type.getType()) {
 			this.fileMachines.add(machine);
 		} else {

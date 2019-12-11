@@ -47,7 +47,7 @@ public class Atelier {
 			TypeMachines m = new TypeMachines(typeIlot);
 			listeIlots.add(new Ilot(m, ilotX, ilotY, listeOperations.get(i)));
 			for(int j=0; j<tailleIlot; j++) {
-				listeIlots.get(i).AjoutMachine(new Machine(m));
+				listeIlots.get(i).ajoutMachine(new Machine(m));
 			}
 		}
 	}
