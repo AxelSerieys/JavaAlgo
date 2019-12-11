@@ -46,10 +46,17 @@ public class Produit {
 		this.numeroPhase++;
 	}
 	
+	/**
+	 * Passe le produit à l'état fini
+	 */
 	public void fin() {
 		this.fini=true;
 	}
 	
+	/**
+	 * Renvoie l'état du produit
+	 * @return true si le produit est fini, false sinon
+	 */
 	public boolean estFini() {
 		return this.fini;
 	}
