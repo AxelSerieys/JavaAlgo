@@ -42,8 +42,28 @@ public class Ilot extends ElementEspace{
 		}
 	}
 	
+	/**
+	 * Ajoute un produit dans la file en entrée
+	 * @param pdt : le produit à ajouter
+	 */
 	public void ajoutPdt(Produit pdt) {
 		fileAttenteEntree.add(pdt);
+	}
+	
+	/**
+	 * Retourne la liste des machines de l'Îlot
+	 * @return List<Machine>
+	 */
+	public List<Machine> getListeMachines() {
+		return this.fileMachines;
+	}
+	
+	/**
+	 * Retourne la file d'attente des produits en entrée de l'Îlot
+	 * @return List<Produit> La file d'attente des produits en entrée
+	 */
+	public List<Produit> getFileAttenteEntree() {
+		return this.fileAttenteEntree;
 	}
 	
 	/**
@@ -54,6 +74,10 @@ public class Ilot extends ElementEspace{
 		return type.getType();
 	}
 	
+	/**
+	 * Retourne l'opération réalisée sur l'Îlot
+	 * @return Operation l'opération réalisée par l'îlot
+	 */
 	public Operation getOperation() {
 		return this.operation;
 	}
