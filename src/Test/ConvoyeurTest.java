@@ -61,6 +61,9 @@ class ConvoyeurTest {
 		assertNull(c.getProduit());
 	}
 	
+	/**
+	 * Teste le déplacement d'un convoyeur et les méthodes getDeplacement et setDeplacement
+	 */
 	@Test
 	void testDeplacement() {
 		Convoyeur c = new Convoyeur(1, 2, 3, 4);
