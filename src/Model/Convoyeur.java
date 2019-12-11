@@ -11,6 +11,7 @@ public class Convoyeur extends ElementEspace{
 	private int vitesseDeplacement;
 	private int capacite;
 	private Produit produit = null;
+	private boolean deplacement;
 	
 	/**
 	 * Constructeur de Convoyeur :
@@ -23,6 +24,7 @@ public class Convoyeur extends ElementEspace{
 		super(x,y);
 		this.capacite = capacite;
 		this.vitesseDeplacement = vitesseDeplacement;
+		this.deplacement=false;
 	}
 	
 	/**
@@ -55,6 +57,14 @@ public class Convoyeur extends ElementEspace{
 	 */
 	public Produit getProduit() {
 		return this.produit;
+	}
+	
+	public void setDeplacement(boolean b) {
+		this.deplacement=b;
+	}
+	
+	public boolean getDeplacement() {
+		return this.deplacement;
 	}
 
 	/**

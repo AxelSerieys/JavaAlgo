@@ -10,6 +10,7 @@ public class Produit {
 
 	private String type;
 	private int numeroPhase;
+	private boolean fini;
 	
 	/**
 	 * Constructeur de la classe produit
@@ -19,6 +20,7 @@ public class Produit {
 	public Produit(String type, int numeroPhase) {
 		this.type = type;
 		this.numeroPhase = numeroPhase;
+		this.fini=false;
 	}
 	
 	/**
@@ -39,9 +41,16 @@ public class Produit {
 	
 	/**
 	 * Met à jour le numéro de la phase du produit
-	 * @param numeroPhase  la nouvelle phase du produit
 	 */
-	public void setNumeroPhase(int numeroPhase) {
-		this.numeroPhase = numeroPhase;
+	public void phaseSuivante() {
+		this.numeroPhase++;
+	}
+	
+	public void fin() {
+		this.fini=true;
+	}
+	
+	public boolean estFini() {
+		return this.fini;
 	}
 }

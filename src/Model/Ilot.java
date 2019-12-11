@@ -12,6 +12,7 @@ public class Ilot extends ElementEspace{
 	private ArrayList<String> fileAttenteSortie;
 	private int nbMachines;
 	private TypeMachines type;
+	private Operation operation;
 	
 	/**
 	 * Crée un îlot
@@ -20,11 +21,12 @@ public class Ilot extends ElementEspace{
 	 * @param y : position en y de l'îlot
 	 * @param taille : taille des files d'attentes de l'îlot
 	 */
-	public Ilot(TypeMachines type, int x, int y, int taille) {
+	public Ilot(TypeMachines type, int x, int y, int taille, Operation op) {
 		super(x,y);
 		fileAttenteEntree=new ArrayList<String>(taille);
 		fileAttenteSortie=new ArrayList<String>(taille);
 		this.type=type;
+		this.operation=op;
 	}
 	
 	/**
@@ -45,5 +47,9 @@ public class Ilot extends ElementEspace{
 	 */
 	public String getType() {
 		return type.getType();
+	}
+	
+	public Operation getOperation() {
+		return this.operation;
 	}
 }
