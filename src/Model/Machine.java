@@ -8,6 +8,7 @@ package Model;
 
 public class Machine {
 	private TypeMachines type;
+	private boolean utilise;
 	
 	/**
 	 * Crée une machine
@@ -15,8 +16,20 @@ public class Machine {
 	 */
 	public Machine(TypeMachines type) {
 		this.type=type;
+		this.utilise=false;
 	}
 	
+	public void estUtil() {
+		this.utilise=true;
+	}
+	
+	public void pasUtil() {
+		this.utilise=false;
+	}
+	
+	public boolean getUtil() {
+		return this.utilise;
+	}
 	/**
 	 * Renvoie le type de la machine
 	 * @return type de machine

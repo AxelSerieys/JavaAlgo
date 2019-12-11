@@ -10,7 +10,7 @@ import java.util.*;
 public class Ilot extends ElementEspace{
 	private ArrayList<Produit> fileAttenteEntree;
 	private ArrayList<Produit> fileAttenteSortie;
-	private int nbMachines;
+	private ArrayList<Machine> fileMachines;
 	private TypeMachines type;
 	private Operation operation;
 	
@@ -27,6 +27,7 @@ public class Ilot extends ElementEspace{
 		fileAttenteSortie=new ArrayList<Produit>();
 		this.type=type;
 		this.operation=op;
+		this.fileMachines = new ArrayList<Machine>();
 	}
 	
 	/**
@@ -35,7 +36,7 @@ public class Ilot extends ElementEspace{
 	 */
 	public void AjoutMachine(Machine machine) {
 		if(machine.getType()==this.type.getType()) {
-			this.nbMachines++;
+			this.fileMachines.add(machine);
 		} else {
 			System.out.println("Type de la machine different de celui accépté par l'îlot");
 		}
