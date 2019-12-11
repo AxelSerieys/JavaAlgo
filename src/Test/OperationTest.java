@@ -11,7 +11,7 @@ class OperationTest {
 	/**
 	 * Test creation operation
 	 */
-	@Ignore
+	@Test
 	void test() {
 		Operation ope1 = new Operation(45,"Découpage");
 		System.out.println(ope1.getTempsRealisation() + " "+ ope1.getType());
@@ -21,7 +21,7 @@ class OperationTest {
 	/**
 	 * Test ajout operation et son affichage 
 	 */
-	@Ignore
+	@Test
 	void test1() {
 		Operation ope1 = new Operation(45,"Découpage");
 		Operation ope2 = new Operation(5,"Nettoyage");
