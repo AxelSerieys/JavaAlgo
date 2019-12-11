@@ -11,7 +11,7 @@ class GammeTest {
 
 	@Test
 	void test() {
-		Gamme gamme1 = new Gamme();
+		Gamme gamme1 = new Gamme("GammeProduit");
 		Operation ope1 = new Operation(45,"Découpage");
 		Operation ope2 = new Operation(5,"Nettoyage");
 		Operation ope3 = new Operation(15,"Pliage");

@@ -50,17 +50,26 @@ public class Gamme {
 		}
 	}
 
-	/** Getter d'une Gamme **/
+	/** 
+	 * Getter d'une Gamme
+	 * @return une liste contenant les operations de la gamme
+	 */
 	public LinkedList<Operation> getListeGamme() {
 		return listeGamme;
 	}
 
-	/** Setter d'une Gamme **/
+	/** 
+	 * Setter d'une Gamme
+	 * @param listeGamme: la liste de la Gamme 
+	 */
 	public void setGamme(LinkedList<Operation> listeGamme) {
 		this.listeGamme = listeGamme;
 	}
 	
-	/** Getter du nom d'une Gamme **/
+	/** 
+	 * Getter du nom d'une Gamme 
+	 * @return le nom de la gamme
+	 */
 	public String getNom() {
 		return this.nom;
 	}
