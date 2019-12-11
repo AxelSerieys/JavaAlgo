@@ -60,23 +60,6 @@ public class Atelier {
 	}
 	
 	/** 
-	 * Configuration des convoyeurs de l'atelier 
-	 */
-	/*public void configConvoy() {
-		System.out.println("");
-		System.out.println("-- Configuration des convoyeurs");
-		System.out.println("");
-		System.out.println("Combien de convoyeurs y a-t'il dans votre atelier?");
-		listeConvoy=new ArrayList<Convoyeur>(entree.nextInt());
-		System.out.println("Quelle est leur vitesse?");
-		int vitesse=entree.nextInt();
-		//Les convoyeurs sont située au même endroit que le stock de matières premières en debut de simulation
-		for (int i=0; i<listeConvoy.size(); i++) {
-			listeConvoy.add(new Convoyeur(stockMP.getPositionX(),stockMP.getPositionY(),1,vitesse));
-		}
-	}*/
-	
-	/** 
 	 * Configuration des stocks de l'atelier 
 	 */
 	public void configStocks() {
@@ -145,6 +128,10 @@ public class Atelier {
 		return tabPdts;
 	}
 	
+	public int tpsTraitementPiece(Ilot ilot) {
+		return ilot.getOperation().getTempsRealisation();
+	}
+	
 	public void ajoutPdtIlot() {
 		Gamme g = getGammePdt(getPdtTopStock());
 		int numPhase = getPdtTopStock().getNumeroPhase();
@@ -198,14 +185,6 @@ public class Atelier {
 	public int getNbIlots() {
 		return listeIlots.size();
 	}
-	
-	/*public Convoyeur getConvoyeur(int i) {
-		return listeConvoy.get(i);
-	}
-	
-	public int getNbConvoy() {
-		return listeConvoy.size();
-	}*/
 	
 	public int getNbGammes() {
 		return listeGammes.size();

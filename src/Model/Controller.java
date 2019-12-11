@@ -15,13 +15,13 @@ public class Controller {
 	
 	public void lancerSimulation() {
 		configurationAtelier();
+		configurationProduits();
 		simuler();
 	}
 	
 	public void configurationAtelier() {
 		atelier=new Atelier();
 		atelier.configIlots();
-		//atelier.configConvoy();
 		atelier.configStocks();
 		atelier.configGammes();
 	}
@@ -35,11 +35,10 @@ public class Controller {
 			nbProduitsFab+=(int)atelier.nbProduitsAFabriquer()[i][1];
 			atelier.setStockMP((int)atelier.nbProduitsAFabriquer()[i][1],atelier.getGamme(i));
 		}
-		//int []tpsDepl= new int [atelier.getNbConvoy()];
 		while(atelier.getSizeStockPF()<nbProduitsFab) {
-			for(int i=0; i<atelier.getNbIlots(); i++) {
-				atelier.ajoutPdtIlot();
-			}
+			
+			atelier.ajoutPdtIlot();
+			
 			tpsTotalTrait++;
 		}
 	}
