@@ -148,14 +148,4 @@ public class Atelier {
 			}
 		}
 	}
-
-	/** Getter d'un element **/
-	public List<ElementEspace> getElement() {
-		return element;
-	}
-
-	/** Setter d'un element **/
-	public void setElement(List<ElementEspace> element) {
-		this.element = element;
-	}
 }
