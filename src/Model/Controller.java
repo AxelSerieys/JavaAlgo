@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Controller {
 	private int tpsTotalTrait=0;
-	Scanner entree = new Scanner(System.in);
+	private Scanner entree = new Scanner(System.in);
 	private Atelier atelier;
 	private int nbProduitsFab;
 	
