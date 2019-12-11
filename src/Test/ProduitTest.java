@@ -32,15 +32,24 @@ class ProduitTest {
 	}
 	
 	/**
-	 * Test de la méthode setNumeroPhase de Stock
+	 * Test de la méthode phaseSuivante() de Stock
 	 */
 	@Test
-	void testSetNumeroPhase() {
+	void testPhaseSuivante() {
 		int phase=25;
-		Produit p = new Produit("88", 9);
-		p.setNumeroPhase(phase);
+		Produit p = new Produit("88", phase);
+		p.phaseSuivante();
 		
-		assertEquals(phase, p.getNumeroPhase());
+		assertEquals(phase+1, p.getNumeroPhase());
+	}
+	
+	@Test
+	void testEstFini() {
+		Produit p = new Produit("A", 0);
+		assertFalse(p.estFini());
+		
+		p.fin();
+		assertTrue(p.estFini());
 	}
 
 }
