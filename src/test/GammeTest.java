@@ -18,6 +18,7 @@ class GammeTest {
 	@Test
 	void test() {
 		Gamme gamme1 = new Gamme("GammeProduit");
+		gamme1.getNom();
 		Operation ope1 = new Operation(45,"Découpage");
 		Operation ope2 = new Operation(5,"Nettoyage");
 		Operation ope3 = new Operation(15,"Pliage");
