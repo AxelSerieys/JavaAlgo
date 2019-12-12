@@ -9,8 +9,8 @@ _Etat du projet_
 Projet en cours de réalisation:
 * Création des classes : **Fini**
 * Configuration utilisateur : **Fini**
-* Simulation : **En cours de développement**
-* Affichage des résultats : **A développer**
+* Simulation : **Fini**
+* Affichage des résultats : **Fini**
 
 _Description du projet_
 -----------
